@@ -12,6 +12,14 @@ use App\Http\Controllers\ArchivoController;
 use App\Http\Controllers\NominasController;
 
 
+use App\Http\Controllers\EmpleadosController;
+use App\Http\Controllers\CambioAdsController;
+use App\Http\Controllers\CambioBloqueController;
+use App\Http\Controllers\IncapacidadController;
+use App\Http\Controllers\VacacionesController;
+use App\Http\Controllers\LicenciaController;
+use App\Http\Controllers\AltaPersonalController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,3 +54,14 @@ Route::resource('Adiestramiento', AdiestramientoController::class)->middleware('
 Route::resource('Loc', LocController::class)->middleware('auth');
 Route::resource('Archivo', ArchivoController::class)->middleware('auth');
 Route::resource('Nominas', NominasController::class)->middleware('auth');
+
+//Vista de empleados
+Route::resource('empleados', EmpleadosController::class)->middleware('auth');
+
+//Formularios
+Route::resource('CambioAds', CambioAdsController::class)->middleware('auth');
+Route::resource('CambioBloque', CambioBloqueController::class)->middleware('auth');
+Route::resource('Incapacidad', IncapacidadController::class)->middleware('auth');
+Route::resource('Vacaciones', VacacionesController::class)->middleware('auth');
+Route::resource('Licencia', LicenciaController::class)->middleware('auth');
+Route::resource('AltaPersonal', AltaPersonalController::class)->middleware('auth');
