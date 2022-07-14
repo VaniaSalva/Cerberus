@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+
 <style>
     .left-col {
     float: left;
@@ -142,4 +142,3 @@ $(document).ready(function () {
         </script>
        
 
-@endsection
