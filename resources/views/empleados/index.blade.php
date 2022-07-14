@@ -1,17 +1,13 @@
+@extends('adminlte::page')
 
-<style>
-    .left-col {
-    float: left;
-    width: 25%;
-}
- 
-.center-col {
-    width: 50%;
-}
- 
-</style>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-        <h1 >Relacion de personal</h1>
+
+@section('title', 'Relacion de personal')
+
+@section('content_header')
+   <center> <h1>Relacion de personal</h1> </center>
+@stop
+
+@section('content')
         <div class="container">
         <table id="exportable" class="table table-striped" >
             <thead>
@@ -106,39 +102,59 @@
             </tbody>
         </table>
     </div>
-        
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
-        <script>
-           
+       
+@stop
+
+@section('css')
+<link rel="stylesheet" href="/css/admin_custom.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+<style>
+    .left-col {
+    float: left;
+    width: 25%;
+}
+ 
+.center-col {
+    width: 50%;
+}
+ 
+</style>
+@stop
+@section('js')
+<script> console.log('Hi'); </script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+<script>
+   
 
 
 $(document).ready(function () {
-    $('#exportable').DataTable({
-        ordering: false,
-        info: false,
-        scrollX: true,
-        language: {
-            url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/es-MX.json'
-        },
-        "pageLength": 5,
-        "bLengthChange": false,
-        "pagingType": "full_numbers",
-        dom: '<"top"<"left-col"B><"center-col"l><"right-col"f>>rtip',
-        buttons: [
-            {
-                extend: 'excel',
-                title: 'Relacion de personal',
-                text: 'Exportar',
-                className: 'btn btn-primary'
-            }
-        ]
-    });
+$('#exportable').DataTable({
+ordering: false,
+info: false,
+scrollX: true,
+language: {
+    url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/es-MX.json'
+},
+"pageLength": 5,
+"bLengthChange": false,
+"pagingType": "full_numbers",
+dom: '<"top"<"left-col"B><"center-col"l><"right-col"f>>rtip',
+buttons: [
+    {
+        extend: 'excel',
+        title: 'Relacion de personal',
+        text: 'Exportar',
+        className: 'btn btn-primary'
+    }
+]
+});
 });
 
-        </script>
-       
+</script>
+@stop
 
