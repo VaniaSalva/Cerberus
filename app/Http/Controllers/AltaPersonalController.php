@@ -43,18 +43,25 @@ class AltaPersonalController extends Controller
             [
                 'num_emp' => $request['num_emp'],
                 'nombre' => $request['nombre'],
+                'primer_apellido' => $request['apellido_p'],
+                'segundo_apellido' => $request['apellido_m'],
                 'RFC' => $request['rfc'],
                 'CURP' => $request['curp'],
                 'fecha_nacimiento' => $request['fecha_nacimiento'],
                 'deportes' => $request['deportes'],
-                'estado_nacimiento' => $request['estado']
+                'estado_nacimiento' => $request['estado'],
+                'created_at' => now(),
+                'updated_at' => now()
             ]
         );
 
         DB::table('cambios_grados')->insert(
             [
                 'num_emp' => $request['num_emp'],
-                'grado_alta' => $request['grado']
+                'grado_alta' => $request['grado'],
+                'motivo_camb_grado' => 5, //no se solicita este dato en el formulario
+                'created_at' => now(),
+                'updated_at' => now()
             ]
         );
 
@@ -63,7 +70,8 @@ class AltaPersonalController extends Controller
                 'num_emp' => $request['num_emp'],
                 'cargo'=> $request['cargo'],
                 'fecha' => now(),
-                'create_time' => now()
+                'create_time' => now(),
+                'update_time' => now()
             ]
         );
 
@@ -71,9 +79,13 @@ class AltaPersonalController extends Controller
             [
                 'num_emp' => $request['num_emp'],
                 'alta_ads' => $request['adscripcion'],
-                'asignacion' => $request['asignacion'],
+                'asignacion' => $request['Asignacion'],
                 'fecha' => now(),
-                
+                'motivo' => 1,
+                'created_at' => now(),
+                'updated_at' => now()
+                //falta oficio, vacaciones, comentarios, anteciedentes ya que no se solicitan en el formulario
+                //se envían como datos nulos
             ]
         );
 
@@ -81,7 +93,10 @@ class AltaPersonalController extends Controller
             [
                 'num_emp' => $request['num_emp'],
                 'fecha_ingreso' => $request['fecha_ingreso'],
-                'fecha_ingresi_fc' => $request['fecha_ingreso']
+                'fecha_ingresi_fc' => $request['fecha_ingreso'],
+                'tipo_alta' => 1,
+                'created_at' => now(),
+                'updated_at' => now()
             ]
         );
 
@@ -90,14 +105,23 @@ class AltaPersonalController extends Controller
                 'num_emp' => $request['num_emp'],
                 'escolaridad' => $request['escolaridad'],
                 'especialidad' => $request['especialidad'],
-                'idioma_dialecto' => $request['idioma']
+                'idioma_dialecto' => $request['idioma'],
+                'nivel' => $request['nivel'],
+                'estatus' => $request['estatus'],
+                'created_at' => now(),
+                'updated_at' => now()
+                //esta tabla tiene un valor de fecha engreso, desconosco si sigifica ingreso o egreso.
+                //el valor no se pide en el formulario
             ]
         );
 
         DB::table('habilidades')->insert(
             [
                 'num_emp' => $request['num_emp'],
-                'tipo' => $request['habilidad']
+                'tipo' => $request['habilidad'],
+                'fecha' => now(),
+                'created_at' => now(),
+                'updated_at' => now()
             ]
         );
         
@@ -106,50 +130,66 @@ class AltaPersonalController extends Controller
                 'num_emp' => $request['num_emp'],
                 'edo_civil' => $request['estado_civil'],
                 'adscripcion' => $request['adscripcion'],
-                'fecha' => now()
+                'fecha' => now(),
+                'created_at' => now(),
+                'updated_at' => now()
             ]
         );
 
         DB::table('licencias')->insert([
             'num_emp' => $request['num_emp'],
             'motivo' => 1,
-            'folio' => 1,
+            'folio' => $request['num_licencia'],
             'ubicacion' => $request['estado'],
-            'fecha_inicio' => $request['Inicio'],
-            'fecha_fin' => $request['Fin'],
-            'presentandose' => $request['Presentandose']
+            'fecha_inicio' => now(),
+            'fecha_fin' => $request['vigencia'],
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
 
         DB::table('telefonos')->insert([
             'num_emp' => $request['num_emp'],
             'telefono' => $request['tel_personal'],
             'tipo_contacto' => 'PERSONAL',
-            'adscripcion' => $request['adscripcion']
+            'adscripcion' => $request['adscripcion'],
+            'fecha' => now(),
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
 
         DB::table('referencias_personales')->insert([
             'num_emp' => $request['num_emp'],
-            'nombre' => $request['referencia1'],
+            'nombre' => $request['referencia1_n'],
+            'primer_apellido' => $request['referencia1_ap'],
+            'segundo_apellido' => $request['referencia1_am'],
             'numero_telefono' => $request['tel_referencia'],
-            'parentesco' => $request['parentesco1']
+            'parentesco' => $request['parentesco1'],
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
 
         DB::table('referencias_personales')->insert([
             'num_emp' => $request['num_emp'],
-            'nombre' => $request['referencia2'],
+            'nombre' => $request['referencia2_n'],
+            'primer_apellido' => $request['referencia2_ap'],
+            'segundo_apellido' => $request['referencia2_am'],
             'numero_telefono' => $request['tel_referencia2'],
-            'parentesco' => $request['parentesco2']
+            'parentesco' => $request['parentesco2'],
+            'created_at' => now(),
+            'updated_at' => now()
+
         ]);
 
         DB::table('domicilios_personales')->insert([
             'num_emp' => $request['num_emp'],
-            'nombre' => $request['referencia1'],
             'calle' => $request['calle'],
             'numero' => $request['numero'],
             'colonia' => $request['colonia'],
             'ciudad' => $request['ciudad'],
             'estado' => $request['estado'],
             'codigo_postal' => $request['codigo_postal'],
+            'created_at' => now(),
+            'updated_at' => now()
 
         ]);
 
@@ -162,6 +202,11 @@ class AltaPersonalController extends Controller
         ]);
 
 
+        //EL DATO "ORIGINARIO" NO SE DONDE SE COLOCARÁ
+
+        //TODOS ESTOS DATOS FUERON CORREGIDOS GRACIAS A COLOCAR LA INFORMACION FALTANTE EN TIPO NULLEABLE
+        //EN CASO DE ERROR REVISAR LA BASE DE DATOS LOS DATOS DE ID (QUE SEA AUTO INCREMENTABLE)
+        //Y LOS DATOS DE LA TABLA QUE NO APARECEN DENTRO DEL INSERT CHECAR QUE SEAN NULLEABLES
 
         return redirect()->route('CambioAds.index');
     }

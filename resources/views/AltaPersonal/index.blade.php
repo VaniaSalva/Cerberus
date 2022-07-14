@@ -59,6 +59,21 @@
                             <label for="">Nombre:</label>
                             <input type="text" name="nombre" id="nombre"class="form-control">
                         </div>
+                        <div class="form-group">
+                            <label for="apellido_p">Apellido Paterno:</label>
+                            <input type="text" name="apellido_p" id="apellido_p"class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido_m">Apellido Materno:</label>
+                            <input type="text" name="apellido_m" id="apellido_m"class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="genero">Genero:</label>
+                            <select name="genero" id="genero">
+                                <option value="MASCULINO">MASCULINO</option>
+                                <option value="FEMENINO">FEMENINO</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
@@ -94,8 +109,12 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="">Asignacion:</label>
-                            <input type="text" id="asignacion" name="asignacion" class="form-control" >
+                            <label for="Asignacion" class="form-label">Asignacion</label>
+                            <select class="form-control" id="Asignacion" name="Asignacion">
+                                <option value="1"> ASIGNADO</option>
+                                <option value="2"> COMISION </option>
+                                <option value="3"> ENCUADRE </option>
+                            </select>    
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -130,19 +149,55 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
+                            <label for="">NIVEL:</label>
+                            <select class="form-control" id="nivel" name="nivel">
+                                <option value="1">PRESCOLAR</option>
+                                <option value="2">PRIMARIA</option>
+                                <option value="3">SECUNDARIA</option>
+                                <option value="4">PREPARATORIA</option>
+                                <option value="5">UNIVERSIDAD</option>
+                                <option value="5">UNIVERSIDAD</option>
+                                <option value="6">MAESTRIA</option>
+                                <option value="7">DOCTORADO</option>
+                                <option value="8">INGENIERIA</option>
+                                <option value="9">ARQUITECTURA</option>
+                                <option value="10">DERECHO</option>
+                                <option value="11">CONTADURIA PUBLICA</option>
+                                <option value="12">TSU</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
                             <label for="">ESPECIALIDAD:</label>
-                            <input type="text" id="especialidad" name="especialidad" class="form-control">
+                            <select id="especialidad" name="especialidad" class="form-control">
+                                <option value="1">SISTEMAS</option>
+                                <option value="2">MERCADOTECNIA</option>
+                                <option value="3">INGENIERIA INDUSTRIAL</option>
+                                <option value="4">MECATRONICA</option>
+                                <option value="5">LENGUA INGLESA</option>
+                                <option value="6">QUIMICA</option>
+                                <option value="7">TELECOMUNICACIONES</option>
+                                <option value="8">ARTES</option>
+                                <option value="9">DISEÑO GRAFICO</option>
+                                <option value="10">FISICO MATEMATICO</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="">SEMESTRE TRUNCO:</label>
-                            <input type="text" id="semestre_trunco" name="semestre_trunco" class="form-control">
+                            <label for="">ESTATUS ESTUDIOS: (SEMESTRE TRUNCO)</label>
+                            <select id="estatus" name="estatus" class="form-control">
+                                <option value="1">TERMINADO</option>
+                                <option value="2">EN PROGRESO</option>
+                                <option value="3">TRUNCA</option>
+                                <option value="4">EN LINEA</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="">HABILIDAD U OFICION:</label>
+                            <label for="">HABILIDAD U AFICION:</label>
                             <select class="form-control" id="habilidad" name="habilidad">
                                 <option value="2">CARPINTERO</option>
                                 <option value="3">CERRAGERO</option>
@@ -191,7 +246,13 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="">No. FOLIO LICENCIA:</label>
-                            <input type="text" id="num_licencia" name="num_licencia" class="form-control">
+                            <input type="number" id="num_licencia" name="num_licencia" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="">VIGENCIA:</label>
+                            <input type="date" id="vigencia" name="vigencia" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -202,8 +263,20 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="">REFERENCIA PERSONAL[1]:</label>
-                            <input type="text" id="referencia1" name="referencia1" class="form-control" >
+                            <label for="">NOMBRE REFERENCIA PERSONAL[1]:</label>
+                            <input type="text" id="referencia1_n" name="referencia1_n" class="form-control" >
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="">APELLIDO PATERNO REFERENCIA PERSONAL[1]:</label>
+                            <input type="text" id="referencia1_ap" name="referencia1_ap" class="form-control" >
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="">APELLIDO MATERNO REFERENCIA PERSONAL[1]:</label>
+                            <input type="text" id="referencia1_am" name="referencia1_am" class="form-control" >
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -238,8 +311,20 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="">REFERENCIA PERSONAL[2]:</label>
-                            <input type="text" id="referencia2" name="referencia2" class="form-control">
+                            <label for="">NOMBRE REFERENCIA PERSONAL[2]:</label>
+                            <input type="text" id="referencia2_n" name="referencia2_n" class="form-control" >
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="">APELLIDO PATERNO REFERENCIA PERSONAL[2]:</label>
+                            <input type="text" id="referencia2_ap" name="referencia2_ap" class="form-control" >
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="">APELLIDO MATERNO REFERENCIA PERSONAL[2]:</label>
+                            <input type="text" id="referencia2_am" name="referencia2_am" class="form-control" >
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -370,14 +455,14 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="">PESO:</label>
-                            <input type="text" id="peso" name="peso" class="form-control" >
+                            <label for="">PESO (Kilogramos [ej. 60]):</label>
+                            <input type="number" id="peso" name="peso" class="form-control" >
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="">ESTATURA:</label>
-                            <input type="text" id="estatura" name="estatura" class="form-control" >
+                            <label for="">ESTATURA(Metros [ej. 1.80]):</label>
+                            <input type="number" id="estatura" name="estatura" class="form-control" >
                         </div>
                     </div>
                 </div>
