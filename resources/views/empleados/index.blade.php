@@ -9,7 +9,7 @@
 
 @section('content')
         <div class="container">
-        <table id="exportable" class="table table-striped" >
+        <table id="exportable" class="table table-striped table-responsive" style="width: 100%">
             <thead>
                 <tr>
                     <th>No. Organico</th>
@@ -94,7 +94,7 @@
                 </tr>
             @empty
                     <tr>
-                        <td colspan="16" class="text-center">
+                        <td colspan="18" class="text-center">
                             No hay registros.
                         </td>
                     </tr>
@@ -133,9 +133,8 @@
 
 $(document).ready(function () {
 $('#exportable').DataTable({
-ordering: false,
+ordering: true,
 info: false,
-scrollX: true,
 language: {
     url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/es-MX.json'
 },

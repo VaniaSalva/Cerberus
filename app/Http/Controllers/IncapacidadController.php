@@ -16,8 +16,8 @@ class IncapacidadController extends Controller
     public function index()
     {
         $empleados = DB::table('datos_personales')
-        ->join('cambios_ads', 'datos_personales.num_emp', '=', 'cambios_ads.num_emp')
-        ->join('cat1adscripciones', 'cambios_ads.alta_ads', '=', 'cat1adscripciones.id')
+        ->leftJoin('cambios_ads', 'datos_personales.num_emp', '=', 'cambios_ads.num_emp')
+        ->leftJoin('cat1adscripciones', 'cambios_ads.alta_ads', '=', 'cat1adscripciones.id')
         ->select('cambios_ads.alta_ads','datos_personales.nombre', 'datos_personales.num_emp','datos_personales.primer_apellido','datos_personales.segundo_apellido','cat1adscripciones.adscripcion')
         ->get();
         return view('Incapacidad.index', ['empleados' => $empleados]);

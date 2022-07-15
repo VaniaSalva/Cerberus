@@ -16,8 +16,8 @@ class LicenciaController extends Controller
     public function index()
     {
         $empleados = DB::table('datos_personales')
-        ->join('cambios_bloques', 'datos_personales.num_emp', '=', 'cambios_bloques.num_emp')
-        ->join('tipos_motivos_cambio_ads', 'cambios_bloques.motivo', '=', 'tipos_motivos_cambio_ads.id')
+        ->leftJoin('cambios_bloques', 'datos_personales.num_emp', '=', 'cambios_bloques.num_emp')
+        ->leftJoin('tipos_motivos_cambio_ads', 'cambios_bloques.motivo', '=', 'tipos_motivos_cambio_ads.id')
         ->select('cambios_bloques.oficio','cambios_bloques.motivo','tipos_motivos_cambio_ads.motivo_cambAds','datos_personales.nombre', 'datos_personales.num_emp','datos_personales.primer_apellido','datos_personales.segundo_apellido')
         ->get();
         return view('Licencia.index', ['empleados' => $empleados]);

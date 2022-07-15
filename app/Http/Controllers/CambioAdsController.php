@@ -20,13 +20,14 @@ class CambioAdsController extends Controller
                 $query->on('cambios_bloques.num_emp', '=', 'datos_personales.num_emp')
                 ->whereRaw('cambios_bloques.id = (select max(`id`) from cambios_bloques where cambios_bloques.num_emp = datos_personales.num_emp)');
             })
-            ->join('tipos_bloques', 'cambios_bloques.bloque_alta', '=', 'tipos_bloques.id')
+            ->leftJoin('tipos_bloques', 'cambios_bloques.bloque_alta', '=', 'tipos_bloques.id')
             ->leftJoin('cambios_ads', function ($query){
                 $query->on('cambios_ads.num_emp', '=', 'datos_personales.num_emp')
                 ->whereRaw('cambios_ads.id = (select max(`id`) from cambios_ads where cambios_ads.num_emp = datos_personales.num_emp)');
             })
-            ->join('cat1adscripciones', 'cambios_ads.alta_ads', '=', 'cat1adscripciones.id')
-            ->select('cambios_bloques.bloque_alta','cambios_ads.alta_ads','datos_personales.nombre', 'datos_personales.num_emp','datos_personales.primer_apellido','datos_personales.segundo_apellido','tipos_bloques.bloque', 'cat1adscripciones.adscripcion')
+            ->leftJoin('cat1adscripciones', 'cambios_ads.alta_ads', '=', 'cat1adscripciones.id')
+            ->leftJoin('tipos_asignaciones', 'cambios_ads.asignacion', '=', 'tipos_asignaciones.id')
+            ->select('tipos_asignaciones.asignacion','cambios_bloques.bloque_alta','cambios_ads.alta_ads','datos_personales.nombre', 'datos_personales.num_emp','datos_personales.primer_apellido','datos_personales.segundo_apellido','tipos_bloques.bloque', 'cat1adscripciones.adscripcion')
             ->get();
         return view('CambioAds.index', ['empleados' => $empleados]);
     }
@@ -57,7 +58,7 @@ class CambioAdsController extends Controller
             'oficio'=>$request['Oficio'], 
             'fecha'=>$request['Fecha'],
             'bloque'=>$request['BloqueB'],
-            'asignacion'=>$request['Asignacion'],
+            'asignacion'=>$request['AsignacionN'],
             'created_at'=>now()
         ]);
 

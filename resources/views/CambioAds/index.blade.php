@@ -63,8 +63,8 @@
             </select>
         </div>
         <div class="mb-3">
-            <label for="Asignacion" class="form-label">Asignacion</label>
-            <select class="form-control" id="Asignacion" name="Asignacion">
+            <label for="AsignacionN" class="form-label">Asignacion</label>
+            <select class="form-control" id="AsignacionN" name="AsignacionN">
                 <option value="1"> ASIGNADO</option>
                 <option value="2"> COMISION </option>
                 <option value="3"> ENCUADRE </option>
@@ -127,6 +127,7 @@
         var empleados = <?= $empleados ?>;
         document.getElementById("Nombre").value = "";
         document.getElementById("Adscripcion").value = '';
+        document.getElementById("Asignacion").value = '';
 
         empleados.forEach(element => {
             if(element['num_emp']==input.value){
@@ -134,7 +135,8 @@
                 document.getElementById("Adscripcion").value = element['adscripcion'];
                 document.getElementById("baja_ads").value = element['alta_ads'];
                 document.getElementById("BloqueB").value = element['bloque_alta'];
-            }
+                document.getElementById("Asignacion").value = element['asignacion'];
+            }           
             }
         )
     }
