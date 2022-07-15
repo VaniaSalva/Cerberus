@@ -8,7 +8,8 @@
 @stop
 
 @section('content')
-<p></p>
+<p>
+</p>
 @stop
 
 @section('css')

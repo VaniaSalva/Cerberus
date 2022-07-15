@@ -47,7 +47,7 @@ return [
 
     'logo' => '<b>Fuerza Civil',
     'logo_img' => 'vendor/adminlte/dist/img/Logo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-4',
+    'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'AdminLTE',
@@ -65,8 +65,8 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
-    'usermenu_header_class' => 'bg-primary',
+    'usermenu_header' => true,
+    'usermenu_header_class' => 'bg-success',
     'usermenu_image' => false,
     'usermenu_desc' => false,
     'usermenu_profile_url' => false,
@@ -85,8 +85,8 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
-    'layout_fixed_navbar' => null,
+    'layout_fixed_sidebar' => true,
+    'layout_fixed_navbar' => true,
     'layout_fixed_footer' => null,
     'layout_dark_mode' => null,
 
@@ -122,12 +122,12 @@ return [
     */
 
     'classes_body' => '',
-    'classes_brand' => '',
-    'classes_brand_text' => '',
+    'classes_brand' => 'bg-info',
+    'classes_brand_text' => 'text-dark',
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'sidebar-dark-primary elevation-3',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
@@ -257,47 +257,108 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
-        ['header' => 'MESAS DE CATALOGOS'],
+        ['header' => 'CATALOGOS'],
         [
             'text'    => 'MESAS',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'Mesa de Personal',
-                    'url'  => 'Personal',
-                ],
-                [
-                    'text' => 'Mesa de Faltas',
-                    'url'  => 'Faltas',
-                ],
-                [
-                    'text' => 'Mesa de Cisec',
-                    'url'  => 'Cisec',
-                ],
-                [
-                    'text' => 'Mesa de Moral',
-                    'url'  => 'Moral',
-                ],
-                [
-                    'text' => 'Mesa de Registro',
-                    'url'  => 'Registro',
-                ],
-                [
-                    'text' => 'Mesa de Adiestramiento',
-                    'url'  => 'Adiestramiento',
-                ],
-                [
-                    'text' => 'Mesa de Loc',
-                    'url'  => 'Loc',
-                ],
-                [
-                    'text' => 'Mesa de Archivo',
-                    'url'  => 'Archivo',
-                ],
-                [
-                    'text' => 'Mesa de Nominas',
-                    'url'  => 'Nominas',
-                ],
+                    'text'    => 'Mesa de Personal',
+                    'icon'    => 'fas fa-user ',
+                    'submenu' => [
+                    [
+                        'text' => 'Alta Personal',
+                        'url'  => 'AltaPersonal',
+                    ],
+                    [
+                        'text' => 'Cambio Ads',
+                        'url'  => 'CambioAds
+                        ',
+                    ],
+                    [
+                        'text' => 'Cambio Bloque',
+                        'url'  => '#',
+                    ],
+                    [
+                        'text' => 'Empleados',
+                        'url'  => '#',
+                    ],
+                    [
+                        'text' => 'Incapacidad',
+                        'url'  => '#',
+                    ],
+                    [
+                        'text' => 'Licencia',
+                        'url'  => '#',
+                    ],
+                    [
+                        'text' => 'Vacaciones',
+                        'url'  => '#',
+                    ],
+                    [
+                        'text'    => 'Mesa de Faltas',
+                        'icon'    => ' fas fa-ban',
+                        'submenu' => [ 
+                        [
+                            'text' => 'Faltas',
+                            'url'  => 'Faltas',
+                        ],
+                        [
+                            'text'    => 'Mesa de Cisec',
+                            'icon'    => 'fas fa-copyright',
+                            'submenu' => [
+                                [
+                                    'text' => 'Cisec',
+                                    'url'  => 'Faltas',
+                                ],
+                                [
+                                    'text'    => 'Mesa de Moral',
+                                    'icon'    => 'fas fa-users',
+                                    'submenu' => [
+                                    [
+                                        'text' => 'Moral',
+                                        'url'  => 'Moral',
+                                    ], 
+                                    [
+                                        'text'    => 'Mesa de Registro',
+                                        'icon'    => 'fas fa-clipboard-list',
+                                        'submenu' => [
+                                        [
+                                            'text' => 'Registro',
+                                            'url'  => 'Registro',
+                                        ],
+                                        [
+                                            'text'    => 'Mesa de Adiestramiento',
+                                            'icon'    => 'fas fa-layer-group',
+                                            'submenu' => [
+                                            [
+                                                'text' => 'Adiestramiento',
+                                                'url'  => 'Adiestramiento',
+                                            ],
+                                            [
+                                                'text'    => 'Mesa de Loc',
+                                                'icon'    => 'fas fa-pencil-alt',
+                                                'submenu' => [
+                                                [
+                                                    'text' => 'Loc',
+                                                    'url'  => 'Loc',
+                                                ],
+                                                [
+                                                    'text'    => 'Mesa de Archivo',
+                                                    'icon'    => 'fas fa-file-alt',
+                                                    'submenu' => [
+                                                    [
+                                                        'text' => 'Archivo',
+                                                        'url'  => 'Archivo',
+                                                    ],
+                                                    [
+                                                        'text'    => 'Mesa de Nominas',
+                                                        'icon'    => 'fas fa-money-check-alt',
+                                                        'submenu' => [
+                                                        [
+                                                            'text' => 'Nominas',
+                                                            'url'  => 'Nominas',
+                                                        ],
             ],
         ],
         ['header' => 'labels'],
@@ -471,4 +532,27 @@ return [
     */
 
     'livewire' => false,
+
+
+                            ]
+                          ]
+                         ]
+                     ]
+                  ]
+              ]
+            ]
+         ]
+     ]
+        ]
+    ]
+    ] 
+                    ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+
+
+
 ];
