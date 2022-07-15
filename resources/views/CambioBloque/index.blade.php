@@ -34,7 +34,7 @@
         <h2>Bloque Nuevo</h2>
         <div class="mb-3">
             <label for="BloqueN" class="form-label">Bloque</label>
-            <select class="form-select" id="BloqueN" name="BloqueN">
+            <select class="form-control" id="BloqueN" name="BloqueN">
                 <option value="1"> Bloque 1 </option>
                 <option value="3"> Bloque 2 </option>
                 <option value="4"> Bloque 3 </option>
