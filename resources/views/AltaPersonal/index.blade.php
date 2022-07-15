@@ -1,7 +1,19 @@
+@extends('adminlte::page')
+
+
+@section('title', 'Alta Personal')
+
+@section('content_header')
+   <center> <h1>Alta Personal</h1> </center>
+@stop
+
+@section('content')
+
+
 
 <div class="panel panel-info">
     <div class="panel-heading">
-        <h3 class="panel-title"> Alta de Personal</h3>
+        
     </div>
     <div class="panel-body">
         @if ($errors->any())
@@ -69,7 +81,7 @@
                     </div>
                     <div class="form-group">
                         <label for="genero">Genero:</label>
-                        <select name="genero" id="genero">
+                        <select name="genero" id="genero" class="form-control">
                             <option value="MASCULINO">MASCULINO</option>
                             <option value="FEMENINO">FEMENINO</option>
                         </select>
@@ -435,7 +447,7 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="">TATUAJES:</label>
-                        <select class="form_control" name="tatuajes" id="tatuajes">
+                        <select class="form-control" name="tatuajes" id="tatuajes">
                             <option value="NO">NO</option>
                             <option value="SI">SI</option>
                         </select>
@@ -482,3 +494,11 @@
 </form>
 </div>
 </div>
+@stop
+
+@section('css')
+<link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+@stop

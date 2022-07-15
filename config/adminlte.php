@@ -277,23 +277,23 @@ return [
                     ],
                     [
                         'text' => 'Cambio Bloque',
-                        'url'  => '#',
+                        'url'  => 'CambioBloque',
                     ],
                     [
                         'text' => 'Empleados',
-                        'url'  => '#',
+                        'url'  => 'empleados',
                     ],
                     [
                         'text' => 'Incapacidad',
-                        'url'  => '#',
+                        'url'  => 'Incapacidad',
                     ],
                     [
                         'text' => 'Licencia',
-                        'url'  => '#',
+                        'url'  => 'Licencia',
                     ],
                     [
                         'text' => 'Vacaciones',
-                        'url'  => '#',
+                        'url'  => 'Vacaciones',
                     ],
                     [
                         'text'    => 'Mesa de Faltas',
