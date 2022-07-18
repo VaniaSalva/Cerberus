@@ -16,7 +16,7 @@
 
      <div class="mb-3">
         <label for="nEmpleado" class="form-label">Numero de empleado</label>
-        <input type="number" class="form-control" id="nEmpleado" onkeyup="buscarEmpleado()" max="999999" name="nEmpleado">
+        <input type="number" required class="form-control" id="nEmpleado" onkeyup="buscarEmpleado()" max="999999" name="nEmpleado">
     </div>
     <div class="mb-3">
         <label for="Nombre" class="form-label">Nombre</label>
@@ -28,7 +28,7 @@
     </div>
     <div class="mb-3">
         <label for="Ubicacion" class="form-label">Ubicacion</label>
-        <select class="form-control" id="Ubicacion" name="Ubicacion">
+        <select class="form-control" id="Ubicacion" name="Ubicacion" required>
         <option value="no">Seleccione uno...</option>
   <option value="2">Aguascalientes</option>
   <option value="3">Baja California</option>
@@ -66,15 +66,15 @@
     </div>
     <div class="mb-3">
         <label for="Inicio" class="form-label">Inicio</label>
-        <input type="date" class="form-control" id="Inicio" name="Inicio">
+        <input type="date" class="form-control" id="Inicio" name="Inicio" required>
     </div>
     <div class="mb-3">
         <label for="Fin" class="form-label">Fin</label>
-        <input type="date" class="form-control" id="Fin" name="Fin">
+        <input type="date" class="form-control" id="Fin" name="Fin" required>
     </div>
     <div class="mb-3">
         <label for="Presentandose" class="form-label">Presentandose</label>
-        <input type="date" class="form-control" id="Presentandose" name="Presentandose">
+        <input type="date" class="form-control" id="Presentandose" name="Presentandose" required>
     </div>
     <div class="mb-3">
         <label for="Oficio" class="form-label">Oficio</label>

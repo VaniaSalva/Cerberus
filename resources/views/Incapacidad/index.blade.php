@@ -16,11 +16,11 @@
     <input type="hidden" id="ads" name="ads">
     <div class="mb-3">
         <label for="nEmpleado" class="form-label">Numero de empleado</label>
-        <input type="number" class="form-control" id="nEmpleado" onkeyup="buscarEmpleado()" max="999999" name="nEmpleado">
+        <input type="number" class="form-control" required id="nEmpleado" onkeyup="buscarEmpleado()" max="999999" name="nEmpleado">
     </div>
     <div class="mb-3">
         <label for="Consecutivo" class="form-label">Consecutivo</label>
-        <input type="number" class="form-control" id="Consecutivo" name="Consecutivo">
+        <input type="number" class="form-control" id="Consecutivo" name="Consecutivo" required>
     </div>
     <div class="mb-3">
         <label for="Nombre" class="form-label">Nombre</label>
@@ -32,11 +32,11 @@
     </div>
     <div class="mb-3">
         <label for="Diagnostico" class="form-label">Diagnostico</label>
-        <textarea class="form-control" id="Diagnostico" name="Diagnostico" rows="4" cols="50"></textarea>
+        <textarea class="form-control" id="Diagnostico" name="Diagnostico" rows="4" cols="50" required></textarea>
     </div>
     <div class="mb-3">
     <label for="Tipo" class="form-label">Tipo Incapacidad</label>
-    <select class="form-control" id="Tipo" name="Tipo">
+    <select class="form-control" id="Tipo" name="Tipo" required>
         <option value='1'>ENFERMEDAD GENERAL</option>
         <option value='2'>MATERNIDAD</option>
         <option value='3'>PATERNIDAD</option>
@@ -53,27 +53,27 @@
     </div>
     <div class="mb-3">
         <label for="Medico" class="form-label">Nombre medico </label>
-        <input type="text" class="form-control" id="Medico" name="Medico" >
+        <input type="text" class="form-control" id="Medico" name="Medico" required>
     </div>
     <div class="mb-3">
         <label for="Cedula" class="form-label">Cedula Dr</label>
-        <input type="text" class="form-control" id="Cedula" name="Cedula" >
+        <input type="text" class="form-control" id="Cedula" name="Cedula" required>
     </div>
     <div class="mb-3">
         <label for="Inicio" class="form-label">Inicio</label>
-        <input type="date" class="form-control" id="Inicio" name="Inicio" >
+        <input type="date" class="form-control" id="Inicio" name="Inicio" required>
     </div>
     <div class="mb-3">
         <label for="Fin" class="form-label">Fin</label>
-        <input type="date" class="form-control" id="Fin" name="Fin" >
+        <input type="date" class="form-control" id="Fin" name="Fin" required>
     </div>
     <div class="mb-3">
         <label for="Dias" class="form-label">Dias</label>
-        <input type="number" class="form-control" id="Dias" name="Dias" >
+        <input type="number" class="form-control" id="Dias" name="Dias" required>
     </div>
     <div class="mb-3">
         <label for="Folio" class="form-label">Folio</label>
-        <input type="number" class="form-control" id="Folio" name="Folio" >
+        <input type="number" class="form-control" id="Folio" name="Folio" required>
     </div>
     <button type="submit" class="btn btn-success">Guardar</button>
     <a href="/" class="btn btn-secondary">Volver</a>
