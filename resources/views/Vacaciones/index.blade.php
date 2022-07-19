@@ -9,7 +9,7 @@
 
 @section('content')
 <div class="container">
-    <form {{ route('Incapacidad.store')}} method='POST'>
+    <form {{ route('Vacaciones.store')}} method='POST'>
     @method('POST')
     @csrf
      <div class="mb-3">
@@ -23,9 +23,9 @@
     <div class="mb-3">
         <label for="Periodo" class="form-label">Periodo</label>
         <select class="form-control" id="Periodo" name="Periodo" required>
-        <option value='1er Periodo'>1er Periodo</option>
-        <option value='2do Periodo'>2do Periodo</option>
-        <option value='3er Periodo'>3er Periodo</option>
+        <option value='1'>1er Periodo</option>
+        <option value='2'>2do Periodo</option>
+        <option value='3'>3er Periodo</option>
         </select>
     </div>
     <div class="mb-3">
@@ -79,7 +79,7 @@
         <input type="number" class="form-control" id="Folio" name="Folio" required>
     </div>
      <button type="submit" class="btn btn-success">Guardar</button>
-    <a href="/" class="btn btn-secondary">Volver</a>
+    <a href="/dash" class="btn btn-secondary">Volver</a>
     </form>
 </div>
 @stop

@@ -110,7 +110,7 @@
         </div>
         
         <button type="submit" class="btn btn-success">Guardar</button>
-        <a href="/" class="btn btn-secondary">Volver</a>
+        <a href="/dash" class="btn btn-secondary">Volver</a>
     </form>
 </div>
 
