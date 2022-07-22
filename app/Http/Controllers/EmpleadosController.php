@@ -28,7 +28,6 @@ class EmpleadosController extends Controller
     
     public function getAll(){
         $empleados = DB::table('datos_personales')
-             //->join('cambios_organicas', 'datos_personales.num_emp', '=', 'cambios_organicas.num_emp')
              ->leftJoin('cambios_organicas', function ($query){
                 $query->on('cambios_organicas.num_emp', '=', 'datos_personales.num_emp')
                 ->whereRaw('cambios_organicas.id = (select max(`id`) from cambios_organicas where cambios_organicas.num_emp = datos_personales.num_emp)');
@@ -41,12 +40,12 @@ class EmpleadosController extends Controller
             })
              ->leftJoin('cargos', 'datos_personales.num_emp', '=', 'cargos.num_emp')
              ->leftJoin('ingresos_nominales', 'datos_personales.num_emp', '=', 'ingresos_nominales.num_emp')
-             //->join('cambios_bloques', 'datos_personales.num_emp', '=', 'cambios_bloques.num_emp')
              ->leftJoin('cambios_bloques', function ($query){
                 $query->on('cambios_bloques.num_emp', '=', 'datos_personales.num_emp')
                 ->whereRaw('cambios_bloques.id = (select max(`id`) from cambios_bloques where cambios_bloques.num_emp = datos_personales.num_emp)');
             })
-             ->leftJoin('domicilios_personales', 'datos_personales.num_emp', '=', 'domicilios_personales.num_emp')
+            ->leftJoin('bajas', 'datos_personales.num_emp', '=', 'bajas.num_emp')
+            ->leftJoin('domicilios_personales', 'datos_personales.num_emp', '=', 'domicilios_personales.num_emp')
              ->leftJoin('cat1adscripciones', 'cambios_ads.baja_ads', '=', 'cat1adscripciones.id')
              ->leftJoin('cat1adscripciones as altaAds', 'cambios_ads.alta_ads', '=', 'altaAds.id')
              ->leftJoin('tipos_estados_republica', 'domicilios_personales.estado', '=', 'tipos_estados_republica.id')
@@ -55,8 +54,7 @@ class EmpleadosController extends Controller
              ->leftJoin('tipos_funciones', 'funciones.funcion', '=', 'tipos_funciones.id')
              ->leftJoin('tipos_bloques', 'cambios_bloques.bloque_alta', '=', 'tipos_bloques.id')
              ->leftJoin('grados', 'cambios_organicas.grado', '=', 'grados.id')
-             ->select('datos_personales.*','cambios_ads.fecha', 'altaAds.adscripcion as alta','tipos_cargos.cargo', 'grados.grado', 'cambios_organicas.num_org', 'tipos_bloques.bloque', 'tipos_funciones.funcion', 'tipos_ingresos.tipo_ingresos','cat1adscripciones.adscripcion','tipos_estados_republica.estado', 'altas.fecha_ingreso', 'altas.fecha_ingresi_fc')
-            // ->select('datos_personales.*','cambios_organicas.*', 'altas.*','funciones.*','cambios_ads.*')
+             ->select('bajas.num_emp as isBaja','datos_personales.*','cambios_ads.fecha', 'altaAds.adscripcion as alta','tipos_cargos.cargo', 'grados.grado', 'cambios_organicas.num_org', 'tipos_bloques.bloque', 'tipos_funciones.funcion', 'tipos_ingresos.tipo_ingresos','cat1adscripciones.adscripcion','tipos_estados_republica.estado', 'altas.fecha_ingreso', 'altas.fecha_ingresi_fc')
              ->get();
              return $empleados;
     }

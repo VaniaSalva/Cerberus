@@ -25,6 +25,7 @@
                     <th>Alta ADS</th>
                     <th>Cargo</th>
                     <th>Tipo Ingreso</th>
+                    <th>Estatus Nominal</th>
                     <th>Rol</th>
                     <th>Genero</th>
                     <th>Fecha Ingreso</th>
@@ -35,6 +36,8 @@
             <tbody>
 
             @forelse ($empleados as $key => $empleado)
+            @if (!isset($empleado->isBaja))
+            
                  <tr>
                         <td>
                             {{$empleado->num_org ?? 'No se econtró este dato'}}
@@ -77,6 +80,9 @@
                             {{$empleado->tipo_ingresos ?? 'No se econtró este dato'}}
                         </td>
                         <td>
+                            {{'ACTIVO'}}
+                        </td>
+                        <td>
                             {{$empleado->bloque ?? 'No se econtró este dato'}}
                         </td>
                          <td>
@@ -92,12 +98,14 @@
                             {{$empleado->estado ?? 'No se econtró este dato'}}
                         </td>
                 </tr>
+                @endif
             @empty
                     <tr>
                         <td colspan="18" class="text-center">
                             No hay registros.
                         </td>
                     </tr>
+            
             @endforelse
             </tbody>
         </table>
