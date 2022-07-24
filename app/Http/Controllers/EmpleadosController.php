@@ -32,20 +32,38 @@ class EmpleadosController extends Controller
                 $query->on('cambios_organicas.num_emp', '=', 'datos_personales.num_emp')
                 ->whereRaw('cambios_organicas.id = (select max(`id`) from cambios_organicas where cambios_organicas.num_emp = datos_personales.num_emp)');
             })
-             ->leftJoin('altas', 'datos_personales.num_emp', '=', 'altas.num_emp')
-             ->leftJoin('funciones', 'datos_personales.num_emp', '=', 'funciones.num_emp')
+             ->leftJoin('altas', function ($query){
+                $query->on('altas.num_emp', '=', 'datos_personales.num_emp')
+                ->whereRaw('altas.id = (select max(`id`) from altas where altas.num_emp = datos_personales.num_emp)');
+            })
+             ->leftJoin('funciones', function ($query){
+                $query->on('funciones.num_emp', '=', 'datos_personales.num_emp')
+                ->whereRaw('funciones.id = (select max(`id`) from funciones where funciones.num_emp = datos_personales.num_emp)');
+            })
              ->leftJoin('cambios_ads', function ($query){
                 $query->on('cambios_ads.num_emp', '=', 'datos_personales.num_emp')
                 ->whereRaw('cambios_ads.id = (select max(`id`) from cambios_ads where cambios_ads.num_emp = datos_personales.num_emp)');
             })
-             ->leftJoin('cargos', 'datos_personales.num_emp', '=', 'cargos.num_emp')
-             ->leftJoin('ingresos_nominales', 'datos_personales.num_emp', '=', 'ingresos_nominales.num_emp')
+             ->leftJoin('cargos', function ($query){
+                $query->on('cargos.num_emp', '=', 'datos_personales.num_emp')
+                ->whereRaw('cargos.id = (select max(`id`) from cargos where cargos.num_emp = datos_personales.num_emp)');
+            })
+             ->leftJoin('ingresos_nominales', function ($query){
+                $query->on('ingresos_nominales.num_emp', '=', 'ingresos_nominales.num_emp')
+                ->whereRaw('ingresos_nominales.id = (select max(`id`) from ingresos_nominales where ingresos_nominales.num_emp = datos_personales.num_emp)');
+            })
              ->leftJoin('cambios_bloques', function ($query){
                 $query->on('cambios_bloques.num_emp', '=', 'datos_personales.num_emp')
                 ->whereRaw('cambios_bloques.id = (select max(`id`) from cambios_bloques where cambios_bloques.num_emp = datos_personales.num_emp)');
             })
-            ->leftJoin('bajas', 'datos_personales.num_emp', '=', 'bajas.num_emp')
-            ->leftJoin('domicilios_personales', 'datos_personales.num_emp', '=', 'domicilios_personales.num_emp')
+            ->leftJoin('bajas', function ($query){
+                $query->on('bajas.num_emp', '=', 'datos_personales.num_emp')
+                ->whereRaw('bajas.id = (select max(`id`) from bajas where bajas.num_emp = datos_personales.num_emp)');
+            })
+            ->leftJoin('domicilios_personales', function ($query){
+                $query->on('domicilios_personales.num_emp', '=', 'datos_personales.num_emp')
+                ->whereRaw('domicilios_personales.id = (select max(`id`) from domicilios_personales where domicilios_personales.num_emp = datos_personales.num_emp)');
+            })
              ->leftJoin('cat1adscripciones', 'cambios_ads.baja_ads', '=', 'cat1adscripciones.id')
              ->leftJoin('cat1adscripciones as altaAds', 'cambios_ads.alta_ads', '=', 'altaAds.id')
              ->leftJoin('tipos_estados_republica', 'domicilios_personales.estado', '=', 'tipos_estados_republica.id')
