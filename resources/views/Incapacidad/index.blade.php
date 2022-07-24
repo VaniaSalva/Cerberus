@@ -8,7 +8,11 @@
 @stop
 
 @section('content')
-
+@if (Session::has('mensaje'))
+<div class="alert alert-success" role="alert">
+    {{Session::get('mensaje')}}
+</div>
+@endif
 <div class="container">
     <form {{ route('Incapacidad.store')}} method='POST'>
     @method('POST')

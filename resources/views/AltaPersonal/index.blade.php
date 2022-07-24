@@ -9,7 +9,11 @@
 
 @section('content')
 
-
+@if (Session::has('mensaje'))
+<div class="alert alert-success" role="alert">
+    {{Session::get('mensaje')}}
+</div>
+@endif
 
 <div class="panel panel-info">
     <div class="panel-heading">
@@ -176,7 +180,6 @@
                             <option value="3">SECUNDARIA</option>
                             <option value="4">PREPARATORIA</option>
                             <option value="5">UNIVERSIDAD</option>
-                            <option value="5">UNIVERSIDAD</option>
                             <option value="6">MAESTRIA</option>
                             <option value="7">DOCTORADO</option>
                             <option value="8">INGENIERIA</option>
@@ -236,13 +239,13 @@
                         <label for="">ESTADO CIVIL:</label>
                         <select class="form-control" id="estado_civil" name="estado_civil">
                             <option value="1">SOLTERO(A)</option>
-                            <option value="2">CASADO(A)/option>
+                            <option value="2">CASADO(A) </option>
                             <option value="3">VIUDA(O)</option>
                             <option value="4">UNION LIBRE</option>
                             <option value="5">DIVORCIADO(A)</option>
                             <option value="6">COCUBINATO</option>
                             <option value="7">SEPARACION EN PROCESO JUDICIAL</option>
-                        </select>>
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -437,7 +440,7 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="">NUMERO:</label>
-                        <input type="text" id="numero" name="numero" class="form-control" >
+                        <input type="number" id="numero" name="numero" class="form-control" >
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -494,7 +497,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <button type="submit" class="btn btn-info">Guardar</button>
+                    <button type="submit" class="btn btn-info" id="dbtn" onclick="disableButton()">Guardar</button>
                 </div>
                 <div class="col-md-6">
                     <a class="btn btn-danger" href="/dash">Cancelar</a>
@@ -515,4 +518,12 @@
 @stop
 
 @section('js')
+<script>
+     function disableButton(){
+        setTimeout(function(){
+            document.getElementById("dbtn").disabled = true
+}, 10);
+        ;
+    }
+</script>
 @stop

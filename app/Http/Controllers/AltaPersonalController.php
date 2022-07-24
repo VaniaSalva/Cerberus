@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AltaPersonal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Session;
 
 class AltaPersonalController extends Controller
 {
@@ -208,6 +208,9 @@ class AltaPersonalController extends Controller
         //TODOS ESTOS DATOS FUERON CORREGIDOS GRACIAS A COLOCAR LA INFORMACION FALTANTE EN TIPO NULLEABLE
         //EN CASO DE ERROR REVISAR LA BASE DE DATOS LOS DATOS DE ID (QUE SEA AUTO INCREMENTABLE)
         //Y LOS DATOS DE LA TABLA QUE NO APARECEN DENTRO DEL INSERT CHECAR QUE SEAN NULLEABLES
+
+        Session::flash('mensaje', 'Se añadió el registro.');
+        
 
         return redirect()->route('AltaPersonal.index');
     }
