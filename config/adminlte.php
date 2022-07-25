@@ -314,7 +314,7 @@ return [
                     'submenu' => [
                         [
                             'text' => 'Cisec',
-                            'url'  => 'Faltas',
+                            'url'  => 'Cisec',
                         ],
                     ],
                 ],

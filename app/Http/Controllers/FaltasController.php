@@ -16,7 +16,7 @@ class FaltasController extends Controller
      */
     public function index()
     {
-        return view('Crud.Faltas');
+        return view('Faltas.index');
     }
      /**
      * Show the form for creating a new resource.
@@ -38,8 +38,9 @@ class FaltasController extends Controller
     {
         DB::table('faltas')->insert([
             'num_emp' => $request['nEmpleado'],
-            'fecha' => $request['Fecha']
-
+            'fecha' => $request['Fecha'] ?? now(),
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
         Session::flash('mensaje', 'Se añadió el registro.');
         return redirect()->route('Faltas.index');
