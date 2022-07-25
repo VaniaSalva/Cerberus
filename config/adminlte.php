@@ -249,7 +249,7 @@ return [
                     'submenu' => 
                     [
                         [
-                            'text' => 'Alta Personal',
+                            'text' => 'Alta Personal (Encuadre)',
                             'url'  => 'AltaPersonal',
                         ],
                         [
