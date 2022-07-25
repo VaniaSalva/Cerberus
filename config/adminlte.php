@@ -188,7 +188,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'empleados',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -237,26 +237,7 @@ return [
         ],
 
         // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        ['header' => 'CONFIGURACIÓN DE CUENTA'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
+      
         ['header' => 'SECCION PRIMERA'],
     [
             'text'    => 'MESAS',
@@ -272,7 +253,7 @@ return [
                             'url'  => 'AltaPersonal',
                         ],
                         [
-                            'text' => 'Cambio Ads',
+                            'text' => 'Cambio Adscripción',
                             'url'  => 'CambioAds',
                         ],
                         [
@@ -280,20 +261,8 @@ return [
                             'url'  => 'CambioBloque',
                         ],
                         [
-                            'text' => 'Empleados',
+                            'text' => 'Relacion de Personal',
                             'url'  => 'empleados',
-                        ],
-                        [
-                            'text' => 'Incapacidad',
-                            'url'  => 'Incapacidad',
-                        ],
-                        [
-                            'text' => 'Licencia',
-                            'url'  => 'Licencia',
-                        ],
-                        [
-                            'text' => 'Vacaciones',
-                            'url'  => 'Vacaciones',
                         ],  
                     ],
                 ],
@@ -305,6 +274,10 @@ return [
                         [
                             'text' => 'Faltas',
                             'url'  => 'Faltas',
+                        ],
+                        [
+                            'text' => 'Incapacidad',
+                            'url'  => 'Incapacidad',
                         ],
                     ],
                 ],
@@ -323,9 +296,14 @@ return [
                     'icon'    => 'fas fa-users',
                     'submenu' => 
                     [
+                        
                         [
-                            'text' => 'Moral',
-                            'url'  => 'Moral',
+                            'text' => 'Licencia',
+                            'url'  => 'Licencia',
+                        ],
+                        [
+                            'text' => 'Vacaciones',
+                            'url'  => 'Vacaciones',
                         ],
                     ],
                 ],

@@ -71,8 +71,9 @@ class EmpleadosController extends Controller
              ->leftJoin('tipos_ingresos', 'ingresos_nominales.tipo_ingreso', '=', 'tipos_ingresos.id')
              ->leftJoin('tipos_funciones', 'funciones.funcion', '=', 'tipos_funciones.id')
              ->leftJoin('tipos_bloques', 'cambios_bloques.bloque_alta', '=', 'tipos_bloques.id')
+             ->leftJoin('tipos_asignaciones', 'cambios_ads.asignacion', '=', 'tipos_asignaciones.id')
              ->leftJoin('grados', 'cambios_organicas.grado', '=', 'grados.id')
-             ->select('bajas.num_emp as isBaja','datos_personales.*','cambios_ads.fecha', 'altaAds.adscripcion as alta','tipos_cargos.cargo', 'grados.grado', 'cambios_organicas.num_org', 'tipos_bloques.bloque', 'tipos_funciones.funcion', 'tipos_ingresos.tipo_ingresos','cat1adscripciones.adscripcion','tipos_estados_republica.estado', 'altas.fecha_ingreso', 'altas.fecha_ingresi_fc')
+             ->select('tipos_asignaciones.asignacion','bajas.num_emp as isBaja','datos_personales.*','cambios_ads.fecha', 'altaAds.adscripcion as alta','tipos_cargos.cargo', 'grados.grado', 'cambios_organicas.num_org', 'tipos_bloques.bloque', 'tipos_funciones.funcion', 'tipos_ingresos.tipo_ingresos','cat1adscripciones.adscripcion','tipos_estados_republica.estado', 'altas.fecha_ingreso', 'altas.fecha_ingresi_fc')
              ->get();
              return $empleados;
     }

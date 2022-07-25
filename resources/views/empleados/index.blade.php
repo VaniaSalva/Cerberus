@@ -23,6 +23,7 @@
                     <th>Apartado</th>
                     <th>Adscrip. Anterior</th>
                     <th>Alta ADS</th>
+                    <th>Asignacion</th>
                     <th>Cargo</th>
                     <th>Tipo Ingreso</th>
                     <th>Estatus Nominal</th>
@@ -72,6 +73,9 @@
                         </td>
                         <td>
                             {{date('d/m/Y',strtotime($empleado->fecha)) ?? 'No se econtró este dato'}}
+                        </td>
+                        <td>
+                            {{$empleado->asignacion ?? 'No se econtró este dato'}}
                         </td>
                         <td>
                             {{$empleado->cargo ?? 'No se econtró este dato'}}
