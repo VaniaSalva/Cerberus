@@ -8,6 +8,7 @@
 @stop
 
 @section('content')
+
 <p>
    <section class="content">
       <div class="container-fluid">
