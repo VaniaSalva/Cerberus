@@ -8,14 +8,18 @@
 @stop
 
 @section('content')
-
+@if (Session::has('mensaje'))
+<div class="alert alert-success" role="alert">
+    {{Session::get('mensaje')}}
+</div>
+@endif
 <div class="container">
     <form {{ route('CambioBloque.store')}} method='POST'>
     @method('POST')
     @csrf
         <div class="mb-3">
             <label for="nEmpleado" class="form-label">Numero de empleado:</label>
-            <input type="number" class="form-control" id="nEmpleado" onkeyup="buscarEmpleado()" max="999999" name="nEmpleado">
+            <input type="number" class="form-control" id="nEmpleado" required onkeyup="buscarEmpleado()" max="999999" name="nEmpleado">
         </div>
         <input type="hidden" id="baja_ads" name="baja_ads">
         <input type="hidden" id="BloqueB" name="BloqueB">
@@ -34,7 +38,7 @@
         <h2>Bloque Nuevo</h2>
         <div class="mb-3">
             <label for="BloqueN" class="form-label">Bloque</label>
-            <select class="form-control" id="BloqueN" name="BloqueN">
+            <select class="form-control" id="BloqueN" name="BloqueN" required>
                 <option value="1"> Bloque 1 </option>
                 <option value="3"> Bloque 2 </option>
                 <option value="4"> Bloque 3 </option>
@@ -45,11 +49,11 @@
         </div>
         <div class="mb-3">
             <label for="Fecha" class="form-label">Fecha</label>
-            <input type="date" class="form-control" id="Fecha" name="Fecha">
+            <input type="date" class="form-control" id="Fecha" name="Fecha" required>
         </div>
         <div class="mb-3">
             <label for="Motivo" class="form-label">Motivo</label>
-            <select class="form-control" id="Motivo" name="Motivo">
+            <select class="form-control" id="Motivo" name="Motivo" required>
                 <option value="1"> Cubrir vacante </option>
                 <option value="2"> En tanto se resuelva su situación jurídica </option>
                 <option value="3"> Por alterar la disciplina </option>
@@ -79,10 +83,10 @@
         </div>
         <div class="mb-3">
             <label for="Oficio" class="form-label">Oficio</label>
-            <input type="number" class="form-control" id="Oficio" name="Oficio">
+            <input type="text" class="form-control" id="Oficio" name="Oficio" required>
         </div>
         <button type="submit" class="btn btn-success">Guardar</button>
-        <a href="/" class="btn btn-secondary">Volver</a>
+        <a href="/dash" class="btn btn-secondary">Volver</a>
     </form>
 </div>
 @stop

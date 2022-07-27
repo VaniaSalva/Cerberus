@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Licencia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class LicenciaController extends Controller
 {
@@ -20,6 +21,7 @@ class LicenciaController extends Controller
         ->leftJoin('tipos_motivos_cambio_ads', 'cambios_bloques.motivo', '=', 'tipos_motivos_cambio_ads.id')
         ->select('cambios_bloques.oficio','cambios_bloques.motivo','tipos_motivos_cambio_ads.motivo_cambAds','datos_personales.nombre', 'datos_personales.num_emp','datos_personales.primer_apellido','datos_personales.segundo_apellido')
         ->get();
+        
         return view('Licencia.index', ['empleados' => $empleados]);
     }
 
@@ -50,6 +52,7 @@ class LicenciaController extends Controller
             'fecha_fin' => $request['Fin'],
             'presentandose' => $request['Presentandose']
         ]);
+        Session::flash('mensaje', 'Se añadió el registro.');
         return redirect()->route('Licencia.index');
     }
 

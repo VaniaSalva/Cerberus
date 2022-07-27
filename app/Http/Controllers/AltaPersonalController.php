@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AltaPersonal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Session;
 
 class AltaPersonalController extends Controller
 {
@@ -50,6 +50,7 @@ class AltaPersonalController extends Controller
                 'fecha_nacimiento' => $request['fecha_nacimiento'],
                 'deportes' => $request['deportes'],
                 'estado_nacimiento' => $request['estado'],
+                'genero' => $request['genero'],
                 'created_at' => now(),
                 'updated_at' => now()
             ]
@@ -121,7 +122,7 @@ class AltaPersonalController extends Controller
                 'tipo' => $request['habilidad'],
                 'fecha' => now(),
                 'created_at' => now(),
-                'updated_at' => now()
+                'update_at' => now()
             ]
         );
         
@@ -208,7 +209,10 @@ class AltaPersonalController extends Controller
         //EN CASO DE ERROR REVISAR LA BASE DE DATOS LOS DATOS DE ID (QUE SEA AUTO INCREMENTABLE)
         //Y LOS DATOS DE LA TABLA QUE NO APARECEN DENTRO DEL INSERT CHECAR QUE SEAN NULLEABLES
 
-        return redirect()->route('CambioAds.index');
+        Session::flash('mensaje', 'Se añadió el registro.');
+        
+
+        return redirect()->route('AltaPersonal.index');
     }
 
     /**

@@ -8,14 +8,18 @@
 @stop
 
 @section('content')
-
+@if (Session::has('mensaje'))
+<div class="alert alert-success" role="alert">
+    {{Session::get('mensaje')}}
+</div>
+@endif
 <div class="container">
     <form {{ route('CambioAds.store')}} method='POST'>
     @method('POST')
     @csrf
         <div class="mb-3">
             <label for="nEmpleado" class="form-label">Numero de empleado:</label>
-            <input type="number" class="form-control" id="nEmpleado" onkeyup="buscarEmpleado()" max="999999" name="nEmpleado">
+            <input type="number" class="form-control" id="nEmpleado" required onkeyup="buscarEmpleado()" max="999999" name="nEmpleado">
         </div>
         <input type="hidden" id="baja_ads" name="baja_ads">
         <input type="hidden" id="BloqueB" name="BloqueB">
@@ -34,7 +38,7 @@
         <h2>Adscripcion Nueva</h2>
         <div class="mb-3">
             <label for="AdscripcionN" class="form-label">Adscripcion</label>
-            <select class="form-control" id="AdscripcionN" name="AdscripcionN">
+            <select class="form-control" id="AdscripcionN" name="AdscripcionN" required>
                 <option value="1"> COMISARÍA Y AYUDANTÍA </option>
                 <option value="2"> JEFATURA DE ESTADO MAYOR </option>
                 <option value="3"> INSP. GRAL. Y ASUNTOS INTERNOS </option>
@@ -64,7 +68,7 @@
         </div>
         <div class="mb-3">
             <label for="AsignacionN" class="form-label">Asignacion</label>
-            <select class="form-control" id="AsignacionN" name="AsignacionN">
+            <select class="form-control" id="AsignacionN" name="AsignacionN" required>
                 <option value="1"> ASIGNADO</option>
                 <option value="2"> COMISION </option>
                 <option value="3"> ENCUADRE </option>
@@ -72,11 +76,11 @@
         </div>
         <div class="mb-3">
             <label for="Fecha" class="form-label">Fecha</label>
-            <input type="date" class="form-control" id="Fecha" name="Fecha">
+            <input type="date" class="form-control" id="Fecha" name="Fecha" required>
         </div>
         <div class="mb-3">
             <label for="Motivo" class="form-label">Motivo</label>
-            <select class="form-control" id="Motivo" name="Motivo">
+            <select class="form-control" id="Motivo" name="Motivo" required>
                 <option value="1"> Cubrir vacante </option>
                 <option value="2"> En tanto se resuelva su situación jurídica </option>
                 <option value="3"> Por alterar la disciplina </option>
@@ -106,11 +110,11 @@
         </div>
         <div class="mb-3">
             <label for="Oficio" class="form-label">Oficio</label>
-            <input type="number" class="form-control" id="Oficio" name="Oficio">
+            <input type="text" class="form-control" id="Oficio" name="Oficio" required>
         </div>
         
         <button type="submit" class="btn btn-success">Guardar</button>
-        <a href="/" class="btn btn-secondary">Volver</a>
+        <a href="/dash" class="btn btn-secondary">Volver</a>
     </form>
 </div>
 

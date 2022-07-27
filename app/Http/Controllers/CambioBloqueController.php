@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CambioBloque;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class CambioBloqueController extends Controller
 {
@@ -58,7 +59,8 @@ class CambioBloqueController extends Controller
             'created_at'=>now()
         ]);
 
-        return redirect()->route('CambioBloque.index');
+            Session::flash('mensaje', 'Se añadió el registro.');
+            return redirect()->route('CambioBloque.index');
     }
 
     /**

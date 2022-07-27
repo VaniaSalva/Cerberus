@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Vacaciones;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class VacacionesController extends Controller
 {
@@ -16,7 +17,7 @@ class VacacionesController extends Controller
     public function index()
     {
         $empleados = DB::table('datos_personales')->select('nombre','primer_apellido','segundo_apellido','num_emp')->get();
-
+        
         return view('Vacaciones.index', ['empleados' => $empleados]);
     }
 
@@ -47,6 +48,7 @@ class VacacionesController extends Controller
             'folio' => $request['Folio'],
             'usuario' => 1
         ]);
+        Session::flash('mensaje', 'Se añadió el registro.');
         return redirect()->route('Vacaciones.index');
     }
 

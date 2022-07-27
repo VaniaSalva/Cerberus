@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CambioAds;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class CambioAdsController extends Controller
 {
@@ -29,6 +30,7 @@ class CambioAdsController extends Controller
             ->leftJoin('tipos_asignaciones', 'cambios_ads.asignacion', '=', 'tipos_asignaciones.id')
             ->select('tipos_asignaciones.asignacion','cambios_bloques.bloque_alta','cambios_ads.alta_ads','datos_personales.nombre', 'datos_personales.num_emp','datos_personales.primer_apellido','datos_personales.segundo_apellido','tipos_bloques.bloque', 'cat1adscripciones.adscripcion')
             ->get();
+
         return view('CambioAds.index', ['empleados' => $empleados]);
     }
 
@@ -61,7 +63,7 @@ class CambioAdsController extends Controller
             'asignacion'=>$request['AsignacionN'],
             'created_at'=>now()
         ]);
-
+        Session::flash('mensaje', 'Se añadió el registro.');
         return redirect()->route('CambioAds.index');
     }
 

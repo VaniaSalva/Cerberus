@@ -9,7 +9,11 @@
 
 @section('content')
 
-
+@if (Session::has('mensaje'))
+<div class="alert alert-success" role="alert">
+    {{Session::get('mensaje')}}
+</div>
+@endif
 
 <div class="panel panel-info">
     <div class="panel-heading">
@@ -35,11 +39,12 @@
         @endif
         <form method="POST" action="{{ route('AltaPersonal.store') }}" accept-charset="UTF-8">
             {{ csrf_field() }}
+            @method('POST')
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="">Numero de empleado:</label>
-                        <input type="text" id="num_emp" name="num_emp" class="form-control" autofocus>
+                        <input type="number" id="num_emp" name="num_emp" class="form-control" autofocus>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -71,14 +76,20 @@
                         <label for="">Nombre:</label>
                         <input type="text" name="nombre" id="nombre"class="form-control">
                     </div>
+                </div>
+                    <div class="col-md-4">
                     <div class="form-group">
                         <label for="apellido_p">Apellido Paterno:</label>
                         <input type="text" name="apellido_p" id="apellido_p"class="form-control">
                     </div>
+                    </div>
+                    <div class="col-md-4">
                     <div class="form-group">
                         <label for="apellido_m">Apellido Materno:</label>
                         <input type="text" name="apellido_m" id="apellido_m"class="form-control">
                     </div>
+                    </div>
+                    <div class="col-md-4">
                     <div class="form-group">
                         <label for="genero">Genero:</label>
                         <select name="genero" id="genero" class="form-control">
@@ -86,7 +97,8 @@
                             <option value="FEMENINO">FEMENINO</option>
                         </select>
                     </div>
-                </div>
+                    </div>
+                
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="">Adscripcion:</label>
@@ -168,7 +180,6 @@
                             <option value="3">SECUNDARIA</option>
                             <option value="4">PREPARATORIA</option>
                             <option value="5">UNIVERSIDAD</option>
-                            <option value="5">UNIVERSIDAD</option>
                             <option value="6">MAESTRIA</option>
                             <option value="7">DOCTORADO</option>
                             <option value="8">INGENIERIA</option>
@@ -228,13 +239,13 @@
                         <label for="">ESTADO CIVIL:</label>
                         <select class="form-control" id="estado_civil" name="estado_civil">
                             <option value="1">SOLTERO(A)</option>
-                            <option value="2">CASADO(A)/option>
+                            <option value="2">CASADO(A) </option>
                             <option value="3">VIUDA(O)</option>
                             <option value="4">UNION LIBRE</option>
                             <option value="5">DIVORCIADO(A)</option>
                             <option value="6">COCUBINATO</option>
                             <option value="7">SEPARACION EN PROCESO JUDICIAL</option>
-                        </select>>
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -270,7 +281,7 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="">NUM TEL PERSONAL:</label>
-                        <input type="text" id="tel_personal" name="tel_personal" class="form-control">
+                        <input type="number" id="tel_personal" name="tel_personal" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -294,7 +305,7 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="">NUM TEL REFERENCIA[1]:</label>
-                        <input type="text" id="tel_referencia" name="tel_referencia" class="form-control">
+                        <input type="number" id="tel_referencia" name="tel_referencia" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -342,7 +353,7 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="">NUM TEL REFERENCIA[2]:</label>
-                        <input type="text" id="tel_referencia2" name="tel_referencia2" class="form-control">
+                        <input type="number" id="tel_referencia2" name="tel_referencia2" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -429,19 +440,25 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="">NUMERO:</label>
-                        <input type="text" id="numero" name="numero" class="form-control" >
+                        <input type="number" id="numero" name="numero" class="form-control" >
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="">CODGIO POSTAL:</label>
-                        <input type="text" id="codigo_postal" name="codigo_postal" class="form-control" >
+                        <input type="number" id="codigo_postal" name="codigo_postal" class="form-control" >
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="">IDIOMA/DIALECTO:</label>
-                        <input type="text" id="idioma" name="idioma" class="form-control" >
+                        <select name="idioma" id="idioma" class="form-control">
+                            <option value="6">INGLES</option>
+                            <option value="13">FRANCES</option>
+                            <option value="8">FRANCES 2</option>
+                            <option value="12">ALEMAN 2/3</option>
+                            <option value="14">NAHUATL</option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -474,16 +491,16 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="">ESTATURA(Metros [ej. 1.80]):</label>
-                        <input type="number" id="estatura" name="estatura" class="form-control" >
+                        <input type="number"  step="any" id="estatura" name="estatura" class="form-control" >
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <div class="btn btn-info">Guardar</div>
+                    <button type="submit" class="btn btn-info" id="dbtn" onclick="disableButton()">Guardar</button>
                 </div>
                 <div class="col-md-6">
-                    <div class="btn btn-danger">Cancelar</div>
+                    <a class="btn btn-danger" href="/dash">Cancelar</a>
                 </div>
 
             </div>
@@ -501,4 +518,12 @@
 @stop
 
 @section('js')
+<script>
+     function disableButton(){
+        setTimeout(function(){
+            document.getElementById("dbtn").disabled = true
+}, 10);
+        ;
+    }
+</script>
 @stop

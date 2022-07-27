@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Incapacidad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class IncapacidadController extends Controller
 {
@@ -55,6 +56,7 @@ class IncapacidadController extends Controller
             'nombre_medico' => $request['Medico']
 
         ]);
+        Session::flash('mensaje', 'Se añadió el registro.');
         return redirect()->route('Incapacidad.index');
     }
 
